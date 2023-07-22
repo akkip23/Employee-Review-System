@@ -7,4 +7,10 @@ router.get("/view-employee", passport.checkAuthentication, employeeController.vi
 router.delete("/destroy/:id", employeeController.destroy);
 router.post("/save-user-review/:id/:reviewdFor", employeeController.saveReview);
 
+//update review
+router.post("/update-user-review/:id/:review", employeeController.updateReview);
+
+//delete review
+router.delete("/delete-user-review/:id/:email", employeeController.deleteReview);
+
 module.exports = router; 

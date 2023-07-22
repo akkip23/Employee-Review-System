@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/noty/3.1.4/noty.min.css"
         integrity="sha512-0p3K0H3S6Q4bEWZ/WmC94Tgit2ular2/n0ESdfEX8l172YyQj8re1Wu9s/HT9T/T2osUw5Gx/6pAZNk3UKbESw=="
         crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/css/static_tosterMsg.css">
     <link rel="stylesheet" href="/css/layout.css">
     <%- style %>
         <title>
@@ -22,6 +23,7 @@
 </head>
 
 <body>
+    <ul class="notifications"></ul>
     <div id="layout-container">
         <section id="main-body-container">
             <%- include('_header') %>
@@ -31,6 +33,7 @@
                 </main>
         </section>
     </div>
+    <script src="/js/static_tosterMsg.js"></script>
 </body>
 
 </html>

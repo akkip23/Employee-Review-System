@@ -1,5 +1,6 @@
 const User = require("../model/users"); 
 const Reviews = require("../model/reviews");
+const AssignedReviews = require("../model/assignedReviews")
 
 module.exports.viewEmployee = async function (req, res) {
     
@@ -34,21 +35,61 @@ module.exports.saveReview = async function (req, res) {
             reviewedForEmail: req.params.reviewdFor,
             reviewedBy: req.user.name,
             reviewedByEmail: req.user.email,
-        }).then((review) => {
+        }).then(async (review) => {
             user.reviews.push(review)
             user.save()
-            // req.flash("success", "your review has been sent successfully")
-            if (req.xhr) {
-                return res.status(200).json({
-                    data: {
-                        isreviewed: true
-                    },
-                    message: "review has been saved successfully" 
+
+            await AssignedReviews.findByIdAndDelete(req.params.id).then(async () => {
+                await User.findByIdAndUpdate(req.user.id, {$pull: {assignedReviews: req.params.id}}).then(() => {
+
+                    // req.flash("success", "your review has been sent successfully")
+                    if (req.xhr) {
+                        return res.status(200).json({
+                            data: {
+                                isreviewed: true
+                            },
+                            message: "review has been saved successfully" 
+                        })
+                    }
                 })
-            }
+            })            
         })
         
     } catch (error) {
         console.log("error saving review", error);
+    }
+}
+
+module.exports.updateReview = async function (req, res) {
+
+    try {
+        await Reviews.findByIdAndUpdate(req.params.id, {review: req.params.review}).then(() => {            
+            
+            if (req.xhr) {
+                return res.status(200).json({                    
+                    message: "review has been updated successfully" 
+                })
+            }
+        })
+    } catch (error) {
+        
+    }
+}
+
+module.exports.deleteReview = async function (req, res) {
+    try {
+        await Reviews.findByIdAndDelete(req.params.id).then( async () => {
+
+            await User.findOneAndUpdate({email: req.params.email}, {$pull: {reviews: req.params.id}}).then(() => {
+                if (req.xhr) {
+
+                return res.status(200).json({                    
+                    message: "review has been Deleted successfully" 
+                })
+            }
+            })            
+        })
+    } catch (error) {
+        
     }
 }
