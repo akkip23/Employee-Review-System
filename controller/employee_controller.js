@@ -17,9 +17,20 @@ module.exports.viewEmployee = async function (req, res) {
 }
 
 module.exports.destroy = async function (req, res) {
-    await User.findByIdAndDelete({id: req.query.id}).then(() => {
-        // req.flash("success", "Employee Deleted Successfully")
-        return res.redirect("back")
+    await User.findById(req.params.id).then(async (user) => {
+        console.log(user);        
+
+        try {
+            await Reviews.deleteMany({_id: {$in: user.reviews}})
+            await AssignedReviews.deleteMany({_id: {$in: user.assignedReviews}})
+            await user.deleteOne({_id: user._id});
+                // req.flash("success", "Employee Deleted Successfully")
+            return res.redirect("back")
+        } catch (error) {
+            console.log("error deleting user", error);
+        }
+      
+       
     }).catch((error) => {
         console.log("error deleting employee", error);
     })

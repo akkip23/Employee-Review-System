@@ -1,9 +1,9 @@
 #header-container {
-  background: linear-gradient(181deg, #d38888, #00000080);
+  background: linear-gradient(181deg, #372020, #00000080);
   position: fixed;
   top: 0px;
   left: 0px;
-  width: 97%;
+  width: 97.5%;
   display: flex;
   flex-direction: row;
   padding: 0.4rem 20px;
@@ -23,12 +23,17 @@
   border-radius: 500px;
 }
 
+#loggedIn_user{
+  display: flex;
+  align-items: center;
+}
+
 #loggedIn_user a h4{
   font-size: 1.1rem;
 }
 
 #Applogo img{
-    width: 3rem;
+    width: 5rem;
 }
 
 #searchBar {
@@ -46,6 +51,7 @@
 
 #loginSessions_Create {
   display: flex;
+  align-items: center;
 }
 
 #loginSessions_Create > div {
