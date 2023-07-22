@@ -1,0 +1,24 @@
+<link rel="stylesheet" href="/css/assign_task.css">
+
+
+<body>
+    <form action="/users/update-UserRole" method="POST">
+        <div class="card">
+            <h2>Assign New Admin</h2>
+            <div class="dropdown">
+                <label for="reviewer">Reviewer:</label>
+                <select name="selAdmin" id="reviewer">
+                    <option value="">Select Reviewer</option>
+                    <% for(employee of userData){ %>
+                        <% if(employee.email !=locals.user.email){ %>
+                            <option value="<%= employee.email %>">
+                                <%= employee.name %> - (<%= employee.email %>)
+                            </option>
+                            <% } %>
+                                <% } %>
+                </select>
+            </div>
+            <button class="assign-btn">Create Admin</button>
+        </div>
+    </form>
+</body>

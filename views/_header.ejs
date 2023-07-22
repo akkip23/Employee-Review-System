@@ -1,0 +1,41 @@
+<link rel="stylesheet" href="/css/header.css">
+
+<header id="header-container">
+    <div id="Applogo">
+        <a href="/">
+            <img src="/images/logo.png" alt="app logo">
+        </a>
+
+    </div>
+    <% if(locals.user){ %>
+        <div id="loggedIn_user">
+            <a href="/">
+                <h4>Welcome <%= locals.user.name %>
+                </h4>
+            </a>
+        </div>
+        <% } %>
+            <div id="loginSessions_Create">
+                <% if(locals.user){ %>
+                    <% if(locals.user.role=="admin" ){ %>
+                        <div id="viewEmployee">
+                            <h3><a href="/employee/view-employee">Employees</a></h3>
+                        </div>
+                        <div id="EmployeeTask">
+                            <h3><a href="/admin/assign-task">Assign Task</a></h3>
+                        </div>
+                        <% } %>
+                            <div id="signOut">
+                                <h3><a href="/users/sign-out">logout</a></h3>
+                            </div>
+                            <% }else{ %>
+                                <div id="signUp">
+                                    <h3><a href="/users/sign-up">Sign up</a></h3>
+                                </div>
+                                <div id="loginIn">
+                                    <h3><a href="/users/sign-in">Sign in</a></h3>
+                                </div>
+                                <% } %>
+            </div>
+
+</header>

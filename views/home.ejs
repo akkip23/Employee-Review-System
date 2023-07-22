@@ -1,0 +1,52 @@
+<link rel="stylesheet" href="/css/home.css">
+
+<div class="reivews-header-title">
+    <p style="margin-left: 15px;">Review Your Co-Employees</p>
+    <p style="margin-left: 535px;">My Reviews</p>
+</div>
+<div class="reviews-header-body">
+
+    <div class="emp-Toreview-card">
+        <% if(userData.assignedReviews.length !=0){ %>
+            <% for(assignedReviews of userData.assignedReviews){ %>
+                <div class="card">
+                    <h2 class="employee-name">
+                        <%= assignedReviews.reviewedFor %>
+                    </h2>
+                    <button onclick="openModal(this)" id="<%= assignedReviews.id %>"
+                        data-assignedfor="<%= assignedReviews.reviewedFor %>" class="review-btn">Review</button>
+                </div>
+                <% } %>
+                    <% }else{ %>
+                        <p id="noPending-review">No Pending Reviews Task to display</p>
+                        <% } %>
+    </div>
+    <div class="emp-reviews">
+
+        <div class="emp-review-card">
+            <% if(userData.reviews.length !=0){ %>
+                <% for(review of userData.reviews){ %>
+                    <div class="card">
+                        <div class="review-section">
+                            <h2 class="title">Review</h2>
+                            <p>
+                                <%= review.review %>
+                            </p>
+                        </div>
+                        <div class="review-by">
+                            <h2 style="margin-right: 1rem;" class="title">By</h2>
+                            <p class="info">
+                                <%= review.reviewedBy %>
+                            </p>
+                        </div>
+                    </div>
+                    <% } %>
+                        <% }else{ %>
+                            <p style="margin-top: 20%;">No Review To Display</p>
+                            <% } %>
+        </div>
+    </div>
+
+</div>
+
+<%- include("review_card") %>

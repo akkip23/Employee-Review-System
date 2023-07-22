@@ -1,0 +1,96 @@
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.8);
+  z-index: 500;
+}
+
+.modal-content {
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* max-width: 400px; */
+  width: 80%;
+  height: 80%;
+}
+
+.close {
+  color: #aaaaaa;
+  font-size: 20px;
+  font-weight: bold;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  cursor: pointer;
+}
+
+.close:hover {
+  color: #000000;
+}
+
+/* Table styles */
+#Empreviews_modalBody {
+  height: 80vh;
+  overflow-y: auto;
+}
+
+#Empreviews_modalBody table {
+  border-collapse: collapse;
+  width: 100%;
+}
+
+th,
+td {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+th {
+  background-color: #f2f2f2;
+}
+
+tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+/* Toggle button styles */
+
+#delete-review, #update-review{
+  text-align: center;
+}
+#update-review button {
+  padding: 7px 20px;
+  border: none;
+  cursor: pointer;
+  background: yellow;
+  width: 5rem;
+  height: 2.5rem;
+}
+
+#delete-review button {
+  padding: 7px 20px;
+  border: none;
+  cursor: pointer;
+  background: red;
+  width: 5rem;
+  height: 2.5rem;
+}
+
+.toggle-btn.active {
+  background-color: #4CAF50;
+  color: white;
+}
+
+td input{
+  width: 90%;
+  padding: 5px;
+}

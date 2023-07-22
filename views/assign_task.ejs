@@ -1,0 +1,39 @@
+<link rel="stylesheet" href="/css/assign_task.css">
+
+<div style="display: flex;">
+
+    <body>
+        <form action="/admin/assignedReviewToEmployee" method="POST">
+            <div class="card">
+                <h2>Assign Reviews</h2>
+                <div class="dropdown">
+                    <label for="reviewer">Reviewer:</label>
+                    <select name="reviewer" id="reviewer">
+                        <option value="">Select Reviewer</option>
+                        <% for(employee of userData){ %>
+                            <% if(employee.email !=locals.user.email){ %>
+                                <option value="<%= employee.email %>">
+                                    <%= employee.name %> - (<%= employee.email %>)
+                                </option>
+                                <% } %>
+                                    <% } %>
+                    </select>
+                </div>
+                <div class="dropdown">
+                    <label for="assignTo">Assign To:</label>
+                    <select name="assignTo" id="assignTo">
+                        <option value="">Select Assignee</option>
+                        <% for(employee of userData){ %>
+                            <option value="<%= employee.email %>">
+                                <%= employee.name %> - (<%= employee.email %>)
+                            </option>
+
+                            <% } %>
+                    </select>
+                </div>
+                <button class="assign-btn">Assign Reviews</button>
+            </div>
+        </form>
+    </body>
+    <%- include("assignNew_admin") %>
+</div>
