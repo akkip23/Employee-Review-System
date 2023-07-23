@@ -2,29 +2,22 @@
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 0;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-  background-color: #f0f0f0; */
-}
-
-.emp-reviews{
-  width: 80%;  
-}
-
-.reivews-header-title{
-  display: flex;
-}
-
-.reviews-header-body{
-  display: flex;
-}
-
-.emp-Toreview-card{
   width: 20%;
   height: 73vh;
+  overflow-y: auto;
   border-right: 1px solid black;
+}
+
+.emp-reviews {
+  width: 80%;
+}
+
+.reivews-header-title {
+  display: flex;
+}
+
+.reviews-header-body {
+  display: flex;
 }
 
 .card {
@@ -58,7 +51,7 @@
   background-color: #0056b3; /* Darker shade of blue on hover */
 }
 
-#noPending-review{
+#noPending-review {
   display: flex;
   height: 95%;
   flex-direction: column;
@@ -76,6 +69,7 @@
 
 .card {
   width: 70%;
+  margin-top: 1.3rem;
   background-color: #eaeaea;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -125,7 +119,7 @@
   background-color: #0056b3; /* Darker shade of blue on hover */
 }
 
-.review-by{
+.review-by {
   display: flex;
   justify-content: flex-end;
 }
