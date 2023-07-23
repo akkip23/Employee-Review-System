@@ -1,7 +1,11 @@
-main{
-    padding: 100px 20px 0px;
+main {
+  padding: 100px 20px 0px;
 }
 
-body{
-    font-family: math;
+body {
+  font-family: math;
+}
+
+body::-webkit-scrollbar {
+  width: 0 !important;
 }

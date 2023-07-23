@@ -8,6 +8,10 @@
   border-right: 1px solid black;
 }
 
+.emp-Toreview-card::-webkit-scrollbar {
+  width: 0 !important;
+}
+
 .emp-reviews {
   width: 80%;
 }
@@ -64,7 +68,14 @@
 .emp-review-card {
   display: flex;
   justify-content: center;
+  height: 73vh;
   overflow-y: auto;
+  flex-direction: column;
+  align-items: center;
+}
+
+.emp-review-card::-webkit-scrollbar {
+  width: 0 !important;
 }
 
 .card {

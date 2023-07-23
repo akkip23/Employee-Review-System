@@ -58,6 +58,12 @@ module.exports.createSession = function (req, res) {
 
 module.exports.updateUserRole = async function (req, res) {
   try {
+    const user_isAdmin = User.findOne({ email: req.body.selAdmin });
+    console.log(user_isAdmin);
+    if (user_isAdmin.role == "admin") {
+      req.flash("error", "selected Employee is already Assigned as Admin");
+      return res.redirect("back");
+    }
     if (req.user.role == "admin") {
       await User.findOneAndUpdate(
         { email: req.body.selAdmin },
