@@ -7,7 +7,7 @@
             <h2>Assign New Admin</h2>
             <div class="dropdown">
                 <label for="reviewer">Reviewer:</label>
-                <select name="selAdmin" id="reviewer">
+                <select name="selAdmin" id="reviewer" required>
                     <option value="">Select Reviewer</option>
                     <% for(employee of userData){ %>
                         <% if(employee.email !=locals.user.email){ %>
