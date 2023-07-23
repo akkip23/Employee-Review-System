@@ -6,6 +6,8 @@ const app = express();
 const port = process.env.PORT;
 const expressLayout = require("express-ejs-layouts");
 const DB = require("./config/mongoose")
+const flash = require("connect-flash");
+const customeMware = require("./config/middleware");
 const session = require("express-session");
 const passport = require("passport");
 const passportLocal = require("./config/passport_local_strategy");
@@ -43,6 +45,9 @@ app.use(passport.initialize())
 app.use(passport.session()) 
 
 app.use(passport.setAuthenticatedUser);
+
+app.use(flash());
+app.use(customeMware.setFlash);
 
 app.use("/", require("./routes/index"));
 

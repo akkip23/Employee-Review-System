@@ -30,7 +30,7 @@ module.exports.destroy = async function (req, res) {
             await Reviews.deleteMany({_id: {$in: user.reviews}})
             await AssignedReviews.deleteMany({_id: {$in: user.assignedReviews}})
             await user.deleteOne({_id: user._id});
-                // req.flash("success", "Employee Deleted Successfully")
+                req.flash("success", "Employee Deleted Successfully")
             return res.redirect("back")
         } catch (error) {
             console.log("error deleting user", error);
@@ -59,7 +59,7 @@ module.exports.saveReview = async function (req, res) {
             await AssignedReviews.findByIdAndDelete(req.params.id).then(async () => {
                 await User.findByIdAndUpdate(req.user.id, {$pull: {assignedReviews: req.params.id}}).then(() => {
 
-                    // req.flash("success", "your review has been sent successfully")
+                    req.flash("success", "your review has been sent successfully")
                     if (req.xhr) {
                         return res.status(200).json({
                             data: {

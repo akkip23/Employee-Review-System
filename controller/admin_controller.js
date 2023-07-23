@@ -25,7 +25,7 @@ module.exports.assignTaskToUser = async function (req, res) {
         }).then((assignedReview) => {
             user.assignedReviews.push(assignedReview);
             user.save();
-            // res.flash("success", "Task review has been assigned successfully") 
+            req.flash("success", "Task review has been assigned successfully") 
             return res.redirect("back")
         })
         

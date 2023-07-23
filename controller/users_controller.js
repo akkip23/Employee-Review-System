@@ -28,19 +28,19 @@ module.exports.CreateAccount = async function (req, res) {
         const isUser = await User.exists({email: req.body.email})
         // console.log("req.body", isUser);
         if (isUser != null) {
-            // req.flash("error", "Account Already Exist With this Email")
+            req.flash("error", "Account Already Exist With this Email")
             res.status(200).json({ message: "Account Already Exist With this Email"})
             return res.redirect("back")
         }
 
         if (req.body.password == req.body.Cnfpassword) {
             await User.create(req.body).then((user) => {
-                // req.flash("success", "Account Created Successfully")
+                req.flash("success", "Account Created Successfully")
                 // console.log("created new user", user);
                 res.redirect("/users/login")
             })            
         } else {
-            // req.flash("error", "password and confirm password cannot be different")
+            req.flash("error", "password and confirm password cannot be different")
             res.redirect("back")
         }
     } catch (error) {
@@ -57,12 +57,12 @@ module.exports.updateUserRole = async function (req, res) {
     try {
         if (req.user.role == "admin") {
             await User.findOneAndUpdate({email: req.body.selAdmin}, {role: "admin"}).then(() => {
-                // req.flash("success", "New admin has been assigned successfully")
+                req.flash("success", "New admin has been assigned successfully")
                 return res.redirect("back")
             })
 
         } else {
-            // req.flash("error", "Not Authorized")
+            req.flash("error", "Not Authorized")
             return res.redirect("/users/login")
         }
     } catch (error) {
@@ -94,7 +94,7 @@ module.exports.destroySession = function (req, res) {
     if (err) {
       console.log(err);
     }
-    // req.flash("success", "you have Logged out!");
+    req.flash("success", "you have Logged out!");
     return res.redirect("/");
   });
 }
