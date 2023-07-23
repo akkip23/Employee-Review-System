@@ -1,6 +1,6 @@
-# NodeJS-Placement-Cell
+# NodeJS-Employee-Review-System
 
- <h1 align="center">Placement Cell</h1>
+ <h1 align="center">Employee Review System</h1>
  
 # Employee-Review-System
 Employee review system app used for reviewing employee.
@@ -12,9 +12,9 @@ Employee review system app used for reviewing employee.
   review, the admin can remove the employee. The review given to the employee, is always going to be store in the database.
 </p>
 
-### Tech Stack
+### App built using 
 
-Node , Express, Mongodb , EJS , javaScript , html, css, jQuery
+Node , Express, Mongodb , EJS , javaScript , html, css, jQuery and PassportJS
 
 ### Features
 
