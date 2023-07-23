@@ -2,18 +2,20 @@
 
 <div class="employee-details">
     <% for(employee of userData){ %>
-        <div class="card">
-            <h2>Name: <%= employee.name %>
-            </h2>
-            <p>Email: <%= employee.email %>
-            </p>
-            <div class="button-container">
-                <button onclick="openModal(this)" id="<%= employee.id %>" class="view-btn">View</button>
-                <button onclick="openModal(this)" id="<%= employee.id %>" class="update-btn">Update</button>
-                <a href="/employee/destroy/<%= employee.id %>"><button class="delete-btn">Delete</button></a>
+        <% if(employee.email !="admin.cc@gmail.com" ){ %>
+            <div class="card">
+                <h2>Name: <%= employee.name %>
+                </h2>
+                <p>Email: <%= employee.email %>
+                </p>
+                <div class="button-container">
+                    <button onclick="openModal(this)" id="<%= employee.id %>" class="view-btn">View</button>
+                    <button onclick="openModal(this)" id="<%= employee.id %>" class="update-btn">Update</button>
+                    <a href="/employee/destroy/<%= employee.id %>"><button class="delete-btn">Delete</button></a>
+                </div>
             </div>
-        </div>
-        <% } %>
+            <% } %>
+                <% } %>
 </div>
 
 <%- include("empDetails_Card") %>

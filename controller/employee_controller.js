@@ -16,6 +16,12 @@ module.exports.viewEmployee = async function (req, res) {
     }  
 }
 
+module.exports.addNewEmployee = function (req, res) {
+    return res.render("add_newEmployee", {
+        title: "Add Employee"
+    })    
+}
+
 module.exports.destroy = async function (req, res) {
     await User.findById(req.params.id).then(async (user) => {
         console.log(user);        
