@@ -1,6 +1,9 @@
+//require .env package to access in the whole project
+const dotenv = require("dotenv").config({path: "./config.env"}) 
 const express = require("express");
 const bodyParser = require('body-parser');
 const app = express();
+const port = process.env.PORT;
 const expressLayout = require("express-ejs-layouts");
 const DB = require("./config/mongoose")
 const session = require("express-session");
@@ -13,14 +16,14 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 // Parse JSON bodies (usually sent by APIs)
 app.use(bodyParser.json());
-app.use(express.static('./assets'));
+app.use(express.static(`${process.env.ASSETS_PATH}`));
 app.use(expressLayout);
 app.set("layout extractScritps", true);
 app.set("layout extractStyles", true);
 
 app.use(session({
     name: 'erSystem', 
-    secret: `blahSomething`,
+    secret: `${process.env.SESSION_SECREAT}`,
     saveUninitialized: false,
     cookie: {
         maxAge: 1000 * 60 * 60 * 24
@@ -28,7 +31,7 @@ app.use(session({
     resave: false,
     store: MongoStore.create(
       {
-        mongoUrl: "mongodb+srv://akshaypawle23:dudr6iPX5Br1sSfu@cluster0.jqnuedp.mongodb.net/",
+        mongoUrl: process.env.DB,
       },
       function (err) {
         console.log(err || "connect-mongodb setup ok");
@@ -46,7 +49,7 @@ app.use("/", require("./routes/index"));
 app.set("views", "./views");
 app.set("view engine", "ejs");
 
-app.listen(8000, (err) => {
+app.listen(port, (err) => {
     if (err) {
         console.log('error connecting to server');
         return
