@@ -3,7 +3,7 @@
  <h1 align="center">Employee Review System</h1>
  
 # Employee-Review-System
-<p>-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-**-*-*-*-*-*-**-*-*-*-*-*-*</p>
+<p align="center">-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-**-*-*-*-*-*-**-*-*-*-*-*-*</p>
 
 <h5 align="center">A Default Admin Account has already been created which is used initially to login in as admin and assign task to employees and Mark other employee as admin this admin account cannot be deleted or cannot make changes to it credential for default Admin are below</h5>
 
@@ -11,7 +11,7 @@
 <h4 align="center"> Username : Admin</h4>
 <h4 align="center"> password : ccAdmin@123</h4>
 
-<p>-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-**-*-*-*-*-*-**-*-*-*-*-*-*</p>
+<p align="center">-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-*-**-*-*-*-*-*-**-*-*-*-*-*-**-*-*-*-*-*-*</p>
 
 Employee review system app used for reviewing employee.
 
