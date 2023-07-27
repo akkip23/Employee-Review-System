@@ -56,6 +56,7 @@ module.exports.createSession = function (req, res) {
   res.redirect("/");
 };
 
+//update user role to admin from employee
 module.exports.updateUserRole = async function (req, res) {
   try {
     if (req.user.role == "admin") {
@@ -75,6 +76,7 @@ module.exports.updateUserRole = async function (req, res) {
   }
 };
 
+//get user full details with assigned reviews
 module.exports.getUserDetails = async function (req, res) {
   try {
     await User.findById(req.params.id)
@@ -93,6 +95,7 @@ module.exports.getUserDetails = async function (req, res) {
   }
 };
 
+//sign out user
 module.exports.destroySession = function (req, res) {
   req.logout(function (err) {
     if (err) {

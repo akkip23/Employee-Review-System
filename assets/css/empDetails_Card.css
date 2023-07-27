@@ -1,3 +1,5 @@
+/* styling for employee card details */
+
 .modal {
   display: none;
   position: fixed;
@@ -64,7 +66,8 @@ tr:nth-child(even) {
 
 /* Toggle button styles */
 
-#delete-review, #update-review{
+#delete-review,
+#update-review {
   text-align: center;
 }
 #update-review button {
@@ -86,15 +89,15 @@ tr:nth-child(even) {
 }
 
 .toggle-btn.active {
-  background-color: #4CAF50;
+  background-color: #4caf50;
   color: white;
 }
 
-td input{
+td input {
   width: 90%;
   padding: 5px;
 }
 
-#empDetails p{
+#empDetails p {
   font-size: 20px;
 }

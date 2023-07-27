@@ -1,3 +1,5 @@
+/* static toaster mesage styling */
+
 :root {
   --dark: #78fad1;
   --light: #ffffff;
@@ -134,5 +136,5 @@
     width: 100%;
     font-size: 1rem;
     margin-left: 20px;
-  }  
+  }
 }
